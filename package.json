@@ -1,0 +1,25 @@
+{
+  "name": "pyload-clicknload",
+  "version": "1.0.0",
+  "description": "ClickNLoad functionality for PyLoad or just to copy ClickNLoad links manually",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "rm -f release-macos64.zip && rm -f release-win64.zip && pkg app.js --targets win,macos --out-path ./release && cd release && zip release-macos64.zip app-macos && zip release-win64.zip app-win.exe",
+    "dev": "nodemon app.js",
+    "lint": "eslint ./"
+  },
+  "author": "Laberbear",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^18.4.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "nodemon": "^2.0.2",
+    "pkg": "^4.4.2"
+  }
+}
