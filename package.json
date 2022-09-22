@@ -12,7 +12,7 @@
   "author": "Laberbear",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^18.4.0",
+    "@hapi/hapi": "^20.0.0",
     "clipboardy": "^2.1.0",
     "node-fetch": "^2.6.0",
     "node-notifier": "^10.0.1"
