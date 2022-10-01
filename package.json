@@ -1,27 +1,38 @@
 {
   "name": "pyload-clicknload",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "ClickNLoad functionality for PyLoad or just to copy ClickNLoad links manually",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "rm -f release-macos64.zip && rm -f release-win64.zip && pkg app.js --targets win,macos --out-path ./release && cd release && zip release-macos64.zip app-macos && zip release-win64.zip app-win.exe",
+    "test": "jest --watch",
+    "package": "rm -f release-macos64.zip && rm -f release-win64.zip && pkg . && cd release && zip release-macos64.zip pyload-clicknload-macos && zip release-win64.zip pyload-clicknload-win.exe",
     "dev": "nodemon app.js",
     "lint": "eslint ./"
+  },
+  "bin": "app.js",
+  "pkg": {
+    "assets": "node_modules/clipboardy/fallbacks/**/*",
+    "outputPath": "./release",
+    "targets": ["win", "macos"]
   },
   "author": "Laberbear",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^18.4.0",
-    "clipboardy": "^2.1.0",
-    "node-fetch": "^2.6.0",
+    "@hapi/hapi": "^20.2.2",
+    "clipboardy": "2.3.0",
+    "node-fetch": "2.6.7",
     "node-notifier": "^10.0.1"
   },
   "devDependencies": {
+    "@types/jest": "^29.1.1",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "2.25.3",
-    "nodemon": "^2.0.2",
-    "pkg": "^5.8.0"
+    "eslint-plugin-jest": "^27.0.4",
+    "jest": "^29.0.3",
+    "nock": "^13.2.9",
+    "nodemon": "^2.0.20",
+    "pkg": "^5.8.0",
+    "supertest": "^6.2.4"
   }
 }
